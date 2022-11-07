@@ -1,6 +1,7 @@
 import { Layout } from "antd";
 import React from "react";
 import { Content, Header } from "antd/lib/layout/layout";
+import "./SiteLayout.css";
 
 
 function SiteLayout() {

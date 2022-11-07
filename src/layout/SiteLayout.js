@@ -9,12 +9,12 @@ function SiteLayout() {
  return (
     <>
         <Layout>
-        <Header className="header" >
-            <p>ECBMS | Electronic Customs Brokerage Management System</p>
-        </Header>
-        <Content>
-            <p>Sample</p>
-        </Content>
+            <Header className="header">
+                <p className="headerTitle" >ECBMS | Electronic Customs Brokerage Management System</p>
+            </Header>
+            <Content>
+                <p>Sample</p>
+            </Content>
         </Layout>
     </>
  );

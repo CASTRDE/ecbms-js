@@ -13,7 +13,7 @@ function SiteLayout() {
             <Header className="header">
                 <p className="headerTitle" >ECBMS | Electronic Customs Brokerage Management System</p>
             </Header>
-            <Content>
+            <Content className="background-image-gradient">
                 <Outlet />
             </Content>
         </Layout>

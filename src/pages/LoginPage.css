@@ -54,7 +54,7 @@
   height: 50px;
   margin-top: 10em;
   margin-bottom: -4em;
-  margin-left: 8em;
+  margin-left: 6em;
 }
 
 .form-container {
@@ -64,4 +64,18 @@
 
 .input-email {
   margin-bottom: -2em !important;
+}
+
+.alert-container {
+  white-space: nowrap;
+}
+
+.alert-message {
+  color: red;
+  display: inline;
+}
+
+.alert-icon {
+  margin-right: 1em;
+  display: inline;
 }

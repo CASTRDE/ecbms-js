@@ -1,12 +1,39 @@
 // import { Col, Row, Button, Checkbox, Form, Input } from "antd";
-import { Col, Row, Form, Input, Button, Alert} from "antd";
-import React from 'react';
+import { Col, Row, Form, Input, Button} from "antd";
+import { ExclamationCircleFilled } from '@ant-design/icons';
+import React, { useState } from 'react';
 import "./LoginPage.css";
 
 function LoginPage() {
+    const[email, setEmail] = useState('');
+    const[password, setPassword] = useState('');
+    const[message, setMessage] = useState('');
+    const[flag, isFlag] = useState('');
 
-    const onFinish = (values) => {
-        console.log('Received values of form: ', values);
+    const onFinish = () => {
+        
+        if(email === '' || password === ''){
+            setMessage('Please input log-in credentials')
+            isFlag(<ExclamationCircleFilled color="#000000"/>)
+        }
+        else if(!email.toLowerCase().includes('@oocl.com') || email.length>16){
+            setMessage('Credentials are incorrect')
+            isFlag(<ExclamationCircleFilled color="#000000"/>)
+        }
+        else{
+            setMessage('')
+            isFlag('')
+            alert('Success!')
+        }
+
+    }
+
+    const handleEmailChange = event =>{
+        setEmail(event.target.value);
+    }
+
+    const handlePWChange = event => {
+        setPassword(event.target.value);
     }
 
     return (
@@ -39,29 +66,34 @@ function LoginPage() {
                                 }
                             >
                                 <Input className="input-email"
-                                        type="email"
-                                        placeholder="E-mail Address"></Input>
+                                        placeholder="E-mail Address"
+                                        value={email}
+                                        onChange={handleEmailChange}></Input>
                             </Form.Item>
                             <Form.Item
                                 name="password"
                                 rules={[
                                     {
                                         required: true,
-                                        message: '',
+                                        message: ''
                                     }
-                                ]}>
-                                <Input placeholder="Password"
-                                        type="password"></Input>
+                                ]}
+                            >
+                                <Input.Password placeholder="Password"
+                                        value={password}
+                                        onChange={handlePWChange}></Input.Password>
                             </Form.Item>
-                            <Form.Item>
-                                <Alert message="Alert message" type="warning" showIcon/>
+                            <Form.Item className="alert-container">
+                                <p className="alert-icon">{flag}</p>
+                                <p className="alert-message">{message}</p>
                             </Form.Item>
                             <Form.Item>
                                 <Button type="primary"
                                     style={
                                         {   width: 300,
                                             height: 40}
-                                    }>Sign In</Button>
+                                    }
+                                    onClick={onFinish}>Sign In</Button>
                             </Form.Item>
                             <Form.Item>
                                 <Button type="link">Forgot your password?</Button>
@@ -71,7 +103,6 @@ function LoginPage() {
                 </Col>
             </Row>
         </div>
-        
         </>
      );
 }

@@ -1,5 +1,5 @@
 // import { Col, Row, Button, Checkbox, Form, Input } from "antd";
-import { Col, Row, Form, Input, Button} from "antd";
+import { Col, Row, Form, Input, Button, Alert} from "antd";
 import React from 'react';
 import "./LoginPage.css";
 
@@ -30,9 +30,11 @@ function LoginPage() {
                                     {
                                         required: true,
                                         message: '',
+                                        type: 'email'
                                     }
                                 ]}>
-                                <Input placeholder="E-mail Address"></Input>
+                                <Input type="email"
+                                        placeholder="E-mail Address"></Input>
                             </Form.Item>
                             <Form.Item
                                 name="password"
@@ -45,7 +47,9 @@ function LoginPage() {
                                 <Input placeholder="Password"
                                         type="password"></Input>
                             </Form.Item>
-                            <Form.Item>Error message</Form.Item>
+                            <Form.Item>
+                                <Alert message="Alert message" type="warning" showIcon/>
+                            </Form.Item>
                             <Form.Item>
                                 <Button type="primary">Sign In</Button>
                             </Form.Item>

@@ -21,7 +21,7 @@
   border-radius: 20px;
 }
 
-.foreground-login{
+.foreground-login {
   display: flex;
   flex-direction: column;
   justify-content: center;
@@ -34,4 +34,13 @@
 
   background: #FFFFFF;
   border-radius: 0px 16px 16px 0px;
+}
+
+.foreground-logo {
+  background: url("../assets/login-1 1.svg");
+  background-repeat: no-repeat;
+  margin: auto;
+  left: 3em;
+  width: 426.67px;
+  height: 320px;
 }

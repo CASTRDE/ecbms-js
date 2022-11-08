@@ -9,7 +9,7 @@ function LoginPage() {
         <div className="login-page-bg-container" />
         <div className="foreground">
             <Row>
-                <Col className="foreground-logo" span={12}>logo</Col>
+                <Col className="foreground-logo" span={12} />
                 <Col className="foreground-login"span={12}>login</Col>
             </Row>
         </div>

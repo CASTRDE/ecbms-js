@@ -32,8 +32,14 @@ function LoginPage() {
                                         message: '',
                                         type: 'email'
                                     }
-                                ]}>
-                                <Input type="email"
+                                ]}
+                                style={
+                                    {   width: 300,
+                                        height: 40}
+                                }
+                            >
+                                <Input className="input-email"
+                                        type="email"
                                         placeholder="E-mail Address"></Input>
                             </Form.Item>
                             <Form.Item
@@ -51,7 +57,14 @@ function LoginPage() {
                                 <Alert message="Alert message" type="warning" showIcon/>
                             </Form.Item>
                             <Form.Item>
-                                <Button type="primary">Sign In</Button>
+                                <Button type="primary"
+                                    style={
+                                        {   width: 300,
+                                            height: 40}
+                                    }>Sign In</Button>
+                            </Form.Item>
+                            <Form.Item>
+                                <Button type="link">Forgot your password?</Button>
                             </Form.Item>
                         </Form>
                     </Row>

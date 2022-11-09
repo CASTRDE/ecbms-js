@@ -6,6 +6,7 @@ function SearchEntry() {
     return (
         <div className="search-entry-bg">
             <Form>
+                <div className="search-entry-main-container">
                 <Card
                     title="Search Entry"
                 >
@@ -41,6 +42,7 @@ function SearchEntry() {
                         </Col>
                     </Row>
                 </Card>
+                </div>
             </Form>
         </div>
     )

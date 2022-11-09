@@ -44,3 +44,7 @@
     border: 1px solid #D9D9D9;
     border-radius: 2px;
 }
+
+.search-entry-main-container {
+    margin: 16px 16px 0 16px;
+}

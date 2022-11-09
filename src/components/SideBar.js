@@ -1,30 +1,27 @@
 import {
-    ContainerOutlined,
-    DesktopOutlined,
-    MailOutlined,
+    FileSearchOutlined,
     MenuFoldOutlined,
     MenuUnfoldOutlined,
-    PieChartOutlined,
+    FileTextOutlined,
+    FormOutlined,
+    SettingOutlined
 } from '@ant-design/icons';
 import {Layout, Menu} from 'antd';
 import React, {useState} from 'react';
 import Sider from "antd/es/layout/Sider";
-import { useNavigate } from "react-router-dom"
-
-function getItem(label, key, icon, children, type) {
-    return {
-        key,
-        icon,
-        children,
-        label,
-        type,
-    };
-}
+import {Link, Outlet } from 'react-router-dom'
 
 function SideBar() {
 
     const [collapsed, setCollapsed] = useState(false);
-    const navigate = useNavigate()
+
+    const items = [
+        { label: <Link to ="/newlodgement"> New Lodgement</Link>, key: "/newlodgement", icon: <FormOutlined /> },
+        { label:  <Link to ="/searchentry"> Search Entry </Link>, key: "/searchentry", icon: <FileSearchOutlined /> },
+        { label:  <Link to ="/documents"> Documents </Link>, key: "/documents", icon: <FileTextOutlined /> },
+        { label: <Link to ="/commondatasettings"> Common Data Settings </Link> , key: "/commondatasettings", icon: <SettingOutlined /> },
+    ];
+
 
     return (
         <Layout
@@ -32,34 +29,17 @@ function SideBar() {
                 Height: '100%',
             }}
         >
-            <div>
                 <Sider
                     style={{
-                        minHeight: '100vh',
+                        minHeight: '100%',
                         backgroundColor: 'white',
                     }}
                     trigger={null} collapsible collapsed={collapsed}
                 >
                     <Menu
-                        onClick={({key}) => {
-                            if(key === ''){
-                                console.error("testingroute")
-                            } else {
-                                navigate(key)
-                            }
-                        }}
                         defaultSelectedKeys={['1']}
                         mode="inline"
-                        items={
-                            [
-                                getItem('New Lodgement', '/NewLodgement', <PieChartOutlined/>),
-                                getItem('Search Entry', '/SearchEntry', <DesktopOutlined/>),
-                                getItem('Documents', '/Documents', <ContainerOutlined/>),
-                                getItem('Common Data Settings', '/CommonDataSettings', <MailOutlined/>, [
-                                    getItem('SLEEPWELL', '5'),
-                                ]),
-                            ]
-                        }
+                        items={items}
                     />
                     <div style={{
                         display: 'flex',
@@ -69,6 +49,7 @@ function SideBar() {
                         zIndex: 1,
                         left: 20
                     }} >
+
                     <Layout>
                         {React.createElement(collapsed ? MenuUnfoldOutlined : MenuFoldOutlined, {
                             className: 'trigger',
@@ -77,7 +58,7 @@ function SideBar() {
                     </Layout>
                     </div>
                 </Sider>
-            </div>
+            <Outlet/>
         </Layout>
     );
 };

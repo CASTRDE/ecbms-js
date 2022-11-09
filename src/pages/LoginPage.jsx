@@ -1,6 +1,7 @@
 import { Col, Row, Form, Input, Button} from "antd";
 import { ExclamationCircleFilled } from '@ant-design/icons';
 import React, { useState } from 'react';
+import { Link } from "react-router-dom";
 import "./LoginPage.css";
 
 function LoginPage() {
@@ -93,7 +94,9 @@ function LoginPage() {
                                     onClick={onFinish}>Sign In</Button>
                             </Form.Item>
                             <Form.Item>
-                                <Button type="link">Forgot your password?</Button>
+                                <Link to ={`/reset`}>
+                                    <Button type="link">Forgot your password?</Button>
+                                </Link>
                             </Form.Item>
                         </Form>
                     </Row>

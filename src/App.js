@@ -1,18 +1,25 @@
-import SideBar from "./components/SideBar"
-import {BrowserRouter, Route, Routes} from "react-router-dom";
-import SearchEntry from "./pages/SearchEntry";
+import './App.css';
+import { BrowserRouter, Routes, Route} from "react-router-dom";
+import SiteLayout from "./layout/SiteLayout";
+import LoginPage from "./pages/LoginPage";
+import ResetPasswordPage from "./pages/ResetPasswordPage";
+import CreatePasswordPage from "./pages/CreatePasswordPage";
+import NotFoundPage from './pages/NotFoundPage';
 
-const App = () => {
+function App() {
   return (
+    <div className="App">
       <BrowserRouter>
         <Routes>
-            <Route path="/" element = {<SideBar />} >
-                <Route path="/NewLodgement" element={<div>New Lodgement</div>} />
-                <Route path="/SearchEntry" element={<SearchEntry />} />
-                <Route path="/Documents" element={<div>Documents</div>} />
-            </Route>
+          <Route path="/" element={<SiteLayout />}>
+            <Route path="/login" element={<LoginPage />} />
+            <Route path="/reset" element={<ResetPasswordPage />} />
+            <Route path="/create" element={<CreatePasswordPage />} />
+            <Route path="/*" element={<NotFoundPage />} />
+          </Route>
         </Routes>
       </BrowserRouter>
+    </div>
   );
 }
 

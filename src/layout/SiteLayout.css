@@ -15,3 +15,11 @@
     color: #fff;
     margin-top: 16px;
 }
+
+.background-image-gradient {
+  height: 100vh;
+  width: 100vw;
+  background-size: cover !important;
+  background: url("../assets/Frame280.png");
+  background-repeat: no-repeat;
+}

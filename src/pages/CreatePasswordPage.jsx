@@ -18,7 +18,12 @@ function CreatePasswordPage() {
                             message: ''
                         }
                     ]}
-                >
+                    style={
+                        {   
+                            width: 386,
+                            marginBottom: 30
+                        }
+                    }                >
                     <Input.Password
                             // value={password}
                             // onChange={handlePWChange}
@@ -33,17 +38,24 @@ function CreatePasswordPage() {
                             message: ''
                         }
                     ]}
+                    style={
+                        {   
+                            width: 386,
+                            marginBottom: 30
+                        }
+                    } 
                 >
-                    <Input.Password
+                    <Input.Password 
                             // value={password}
                             // onChange={handlePWChange}
                             ></Input.Password>
                 </Form.Item>
-                <Form.Item>
+                <Form.Item className='save-btn'>
                     <Button type="primary"
                         style={
                             {   width: 69,
-                                height: 40}
+                                height: 40,
+                                marginTop: 20}
                         }
                         // onClick={onFinish}
                     >Save</Button>

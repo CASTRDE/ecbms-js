@@ -51,11 +51,16 @@ function SideBar() {
                         mode="inline"
                         items={items}
                     />
+                    <Divider style={{
+                        position: "absolute",
+                        bottom: 20,
+                    }} />
                     <Layout   style={{
                         position: "absolute",
                         bottom: 15,
                         left: 20
                     }}>
+
                         {React.createElement(collapsed ? MenuUnfoldOutlined : MenuFoldOutlined, {
                             className: 'trigger',
                             onClick: () => setCollapsed(!collapsed),

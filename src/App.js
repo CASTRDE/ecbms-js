@@ -6,6 +6,7 @@ import ResetPasswordPage from "./pages/ResetPasswordPage";
 import CreatePasswordPage from "./pages/CreatePasswordPage";
 import NotFoundPage from './pages/NotFoundPage';
 import SearchEntry from "./pages/SearchEntry";
+import NewLodgement from "./pages/NewLodgement";
 import DisplayDocumentPage from "./pages/DisplayDocumentPage";
 import SideBar from "./components/SideBar";
 
@@ -22,7 +23,7 @@ function App() {
 
 
           <Route path="/menu" element={<SideBar />}>
-              <Route path="/menu/new-lodgement" element={<div>New Lodgement</div>} />
+              <Route path="/menu/new-lodgement" element={<NewLodgement />} />
               <Route path="/menu/search-entry" element={<SearchEntry />} />
               <Route path="/menu/documents" element={<DisplayDocumentPage />} />
           </Route>

@@ -1,0 +1,81 @@
+@import '~antd/dist/antd.min.css';
+
+.login-page-bg-container {
+  height: 100vh;
+  width: 100vw;
+  background-size: cover !important;
+  background: url("../assets/Frame279.png");
+  background-repeat: no-repeat;
+  opacity: 0.5;
+}
+
+.foreground{
+  box-sizing: border-box;
+  position: absolute;
+  width: 1020px;
+  height: 640px;
+  left: 450px;
+  top: 13em;
+  background: rgba(6, 70, 133, 0.8);
+  border: 1px solid #000000;
+  border-radius: 20px;
+}
+
+.foreground-logo {
+  background: url("../assets/login-1 1.svg");
+  background-repeat: no-repeat;
+  margin: auto;
+  left: 3em;
+  width: 426.67px;
+  height: 320px;
+}
+
+
+.foreground-login {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  padding: 40px 60px;
+  gap: 12px;
+
+  width: 420px;
+  height: 638px;
+
+  background: #FFFFFF;
+  border-radius: 0px 16px 16px 0px;
+}
+
+.login-logo {
+  background-size: cover !important;
+  background: url("../assets/logo_logisticslogo 1.svg");
+  background-repeat: no-repeat;
+  width: 175.71px;
+  height: 50px;
+  margin-top: 10em;
+  margin-bottom: -4em;
+  margin-left: 8em;
+}
+
+.form-container {
+  margin-top: 5em;
+  justify-content: center;
+}
+
+.input-email {
+  margin-bottom: -2em !important;
+}
+
+.alert-container {
+  white-space: nowrap;
+}
+
+.alert-message {
+  color: red;
+  display: inline;
+}
+
+.alert-icon {
+  margin-right: 1em;
+  display: inline;
+}

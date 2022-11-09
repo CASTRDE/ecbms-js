@@ -14,7 +14,7 @@ function LoginPage() {
 
     //TEMP
     const redirectSideMenu = () => {
-        redirect(`/menu/newlodgement`)
+        redirect(`/menu/new-lodgement`)
     }
 
     const onFinish = () => {

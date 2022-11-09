@@ -1,21 +1,18 @@
-import './App.css';
-import { BrowserRouter, Routes, Route} from "react-router-dom";
-import SiteLayout from "./layout/SiteLayout";
-import LoginPage from "./pages/LoginPage";
-import NotFoundPage from './pages/NotFoundPage';
+import SideBar from "./components/SideBar"
+import {BrowserRouter, Route, Routes} from "react-router-dom";
+import SearchEntry from "./pages/SearchEntry";
 
-function App() {
+const App = () => {
   return (
-    <div className="App">
       <BrowserRouter>
         <Routes>
-          <Route path="/" element={<SiteLayout />}>
-            <Route path="/login" element={<LoginPage />} />
-            <Route path="/*" element={<NotFoundPage />} />
-          </Route>
+            <Route path="/" element = {<SideBar />} >
+                <Route path="/NewLodgement" element={<div>New Lodgement</div>} />
+                <Route path="/SearchEntry" element={<SearchEntry />} />
+                <Route path="/Documents" element={<div>Documents</div>} />
+            </Route>
         </Routes>
       </BrowserRouter>
-    </div>
   );
 }
 

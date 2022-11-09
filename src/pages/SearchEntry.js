@@ -2,7 +2,7 @@ import React from 'react'
 import {Button, Form, Input, Row, Col, Card} from "antd";
 import "./SearchEntry.css"
 
-function test() {
+function SearchEntry() {
     return (
         <div className="search-entry-bg">
             <Form>
@@ -46,5 +46,4 @@ function test() {
     )
 }
 
-
-export default test
+export default SearchEntry

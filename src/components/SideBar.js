@@ -39,11 +39,14 @@ function SideBar() {
                 <Sider
                     style={{
                         minHeight: '100%',
-                        backgroundColor: 'white',
+                        backgroundColor: "#fafafa"
                     }}
                     trigger={null} collapsible collapsed={collapsed}
                 >
                     <Menu
+                        style={{
+                            backgroundColor: "#fafafa"
+                        }}
                         defaultSelectedKeys={['/menu/newlodgement']}
                         mode="inline"
                         items={items}

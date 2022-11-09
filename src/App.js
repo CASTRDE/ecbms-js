@@ -22,8 +22,8 @@ function App() {
 
 
           <Route path="/menu" element={<SideBar />}>
-              <Route path="/menu/newlodgement" element={<div>New Lodgement</div>} />
-              <Route path="/menu/searchentry" element={<SearchEntry />} />
+              <Route path="/menu/new-lodgement" element={<div>New Lodgement</div>} />
+              <Route path="/menu/search-entry" element={<SearchEntry />} />
               <Route path="/menu/documents" element={<DisplayDocumentPage />} />
           </Route>
           </Route>

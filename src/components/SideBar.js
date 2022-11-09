@@ -16,8 +16,8 @@ function SideBar() {
     const [collapsed, setCollapsed] = useState(false);
 
     const items = [
-        { label: <Link to ="/menu/newlodgement"> New Lodgement </Link>, key: "/menu/newlodgement", icon: <FormOutlined /> },
-        { label:  <Link to ="/menu/searchentry"> Search Entry </Link>, key: "/menu/searchentry", icon: <FileSearchOutlined /> },
+        { label: <Link to ="/menu/new-lodgement"> New Lodgement </Link>, key: "/menu/new-lodgement", icon: <FormOutlined /> },
+        { label:  <Link to ="/menu/search-entry"> Search Entry </Link>, key: "/menu/search-entry", icon: <FileSearchOutlined /> },
         { label:  <Link to ="/menu/documents"> Documents </Link>, key: "/menu/documents", icon: <FileTextOutlined /> },
         { label:  "Common Data Settings", key: "commondatasettings", icon: <SettingOutlined /> , children: [
                 {label: "Container Size/Type"},

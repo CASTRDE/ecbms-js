@@ -19,7 +19,7 @@ function SideBar() {
         { label: <Link to ="/menu/newlodgement"> New Lodgement </Link>, key: "/menu/newlodgement", icon: <FormOutlined /> },
         { label:  <Link to ="/menu/searchentry"> Search Entry </Link>, key: "/menu/searchentry", icon: <FileSearchOutlined /> },
         { label:  <Link to ="/menu/documents"> Documents </Link>, key: "/menu/documents", icon: <FileTextOutlined /> },
-        { label: <Link to ="/menu/commondatasettings"> Common Data Settings </Link> , key: "/menu/commondatasettings", icon: <SettingOutlined /> , children: [
+        { label:  "Common Data Settings", key: "commondatasettings", icon: <SettingOutlined /> , children: [
                 {label: "Container Size/Type"},
                 {label: "Country"},
                 {label: "Currency"},

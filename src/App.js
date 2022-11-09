@@ -25,8 +25,6 @@ function App() {
               <Route path="/menu/newlodgement" element={<div>New Lodgement</div>} />
               <Route path="/menu/searchentry" element={<SearchEntry />} />
               <Route path="/menu/documents" element={<DisplayDocumentPage />} />
-              <Route path="/menu/commondatasettings" element={<div>Common Data Settings</div>} />
-
           </Route>
           </Route>
         </Routes>

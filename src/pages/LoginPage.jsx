@@ -37,6 +37,7 @@ function LoginPage() {
                 }
             });
         }
+        redirect(`/menu/new-lodgement`)
     }
 
     const onFinish = () => {

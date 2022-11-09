@@ -6,7 +6,7 @@ import {
     FormOutlined,
     SettingOutlined
 } from '@ant-design/icons';
-import {Layout, Menu} from 'antd';
+import {Divider, Layout, Menu} from 'antd';
 import React, {useState} from 'react';
 import Sider from "antd/es/layout/Sider";
 import {Link, Outlet } from 'react-router-dom'
@@ -35,11 +35,7 @@ function SideBar() {
 
 
     return (
-        <Layout
-            style = {{
-                Height: '100%',
-            }}
-        >
+        <Layout>
                 <Sider
                     style={{
                         minHeight: '100%',
@@ -52,22 +48,16 @@ function SideBar() {
                         mode="inline"
                         items={items}
                     />
-                    <div style={{
-                        display: 'flex',
-                        flexDirection: 'column',
+                    <Layout   style={{
                         position: "absolute",
                         bottom: 15,
-                        zIndex: 1,
                         left: 20
-                    }} >
-
-                    <Layout>
+                    }}>
                         {React.createElement(collapsed ? MenuUnfoldOutlined : MenuFoldOutlined, {
                             className: 'trigger',
                             onClick: () => setCollapsed(!collapsed),
                         })}
                     </Layout>
-                    </div>
                 </Sider>
             <Outlet/>
         </Layout>

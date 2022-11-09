@@ -1,14 +1,21 @@
 import { Col, Row, Form, Input, Button} from "antd";
 import { ExclamationCircleFilled } from '@ant-design/icons';
 import React, { useState } from 'react';
+import { useNavigate } from 'react-router-dom'
 import { Link } from "react-router-dom";
 import "./LoginPage.css";
 
 function LoginPage() {
+    const redirect = useNavigate()
     const[email, setEmail] = useState('');
     const[password, setPassword] = useState('');
     const[message, setMessage] = useState('');
     const[flag, isFlag] = useState('');
+
+    //TEMP
+    const redirectSideMenu = () => {
+        redirect(`/menu`)
+    }
 
     const onFinish = () => {
         
@@ -91,7 +98,11 @@ function LoginPage() {
                                         {   width: 300,
                                             height: 40}
                                     }
-                                    onClick={onFinish}>Sign In</Button>
+                                    // onClick={onFinish}>
+                                    //TEMP
+                                    onClick={() => redirectSideMenu()}>
+                                    Sign In
+                                </Button>
                             </Form.Item>
                             <Form.Item>
                                 <Link to ={`/reset`}>

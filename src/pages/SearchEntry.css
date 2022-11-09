@@ -48,3 +48,11 @@
 .search-entry-main-container {
     margin: 16px 16px 0 16px;
 }
+
+.ant-card-head-title{
+    display: flex !important;
+}
+
+.ant-card {
+    height: 144px !important;
+}

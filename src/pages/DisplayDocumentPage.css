@@ -45,3 +45,7 @@
     box-shadow: 0 2px 0 rgba(0, 0, 0, 0.02);
     border-radius: 2px;
 }
+
+.display-document-main-container {
+    margin: 16px 16px 0 16px;
+}

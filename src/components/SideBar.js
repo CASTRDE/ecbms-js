@@ -16,10 +16,21 @@ function SideBar() {
     const [collapsed, setCollapsed] = useState(false);
 
     const items = [
-        { label: <Link to ="/newlodgement"> New Lodgement</Link>, key: "/newlodgement", icon: <FormOutlined /> },
-        { label:  <Link to ="/searchentry"> Search Entry </Link>, key: "/searchentry", icon: <FileSearchOutlined /> },
-        { label:  <Link to ="/documents"> Documents </Link>, key: "/documents", icon: <FileTextOutlined /> },
-        { label: <Link to ="/commondatasettings"> Common Data Settings </Link> , key: "/commondatasettings", icon: <SettingOutlined /> },
+        { label: <Link to ="/menu/newlodgement"> New Lodgement </Link>, key: "/menu/newlodgement", icon: <FormOutlined /> },
+        { label:  <Link to ="/menu/searchentry"> Search Entry </Link>, key: "/menu/searchentry", icon: <FileSearchOutlined /> },
+        { label:  <Link to ="/menu/documents"> Documents </Link>, key: "/menu/documents", icon: <FileTextOutlined /> },
+        { label: <Link to ="/menu/commondatasettings"> Common Data Settings </Link> , key: "/menu/commondatasettings", icon: <SettingOutlined /> , children: [
+                {label: "Container Size/Type"},
+                {label: "Country"},
+                {label: "Currency"},
+                {label: "Customer"},
+                {label: "Information"},
+                {label: "HS Code"},
+                {label: "Incoterms"},
+                {label: "Location of Goods"},
+                {label: "Office Clearance"},
+                {label: "Port of Destination"},
+            ]},
     ];
 
 
@@ -37,7 +48,7 @@ function SideBar() {
                     trigger={null} collapsible collapsed={collapsed}
                 >
                     <Menu
-                        defaultSelectedKeys={['1']}
+                        defaultSelectedKeys={['/menu/newlodgement']}
                         mode="inline"
                         items={items}
                     />

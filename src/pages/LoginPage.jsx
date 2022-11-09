@@ -1,4 +1,3 @@
-// import { Col, Row, Button, Checkbox, Form, Input } from "antd";
 import { Col, Row, Form, Input, Button} from "antd";
 import { ExclamationCircleFilled } from '@ant-design/icons';
 import React, { useState } from 'react';
@@ -21,8 +20,6 @@ function LoginPage() {
             isFlag(<ExclamationCircleFilled color="#000000"/>)
         }
         else{
-            setMessage('')
-            isFlag('')
             alert('Success!')
         }
 

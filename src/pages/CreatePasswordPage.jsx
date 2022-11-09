@@ -1,37 +1,16 @@
 import { Form, Input, Button } from 'antd';
-import React, { useState } from 'react';
+import React, {useState} from 'react';
 import "./CreatePasswordPage.css";
 
 function CreatePasswordPage() {
+    // const FORMAT_ERROR_MESSAGE = 'Entries must be at least 12 characters long and must contain a mix of uppercase/lowercase, alphanumeric, or special characters';
+    const FORMAT_ERROR_MESSAGE = 'Invalid';
+    const PATTERN = /^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[@$!%*?&])[A-Za-z\d@$!%*?&]{12,}$/;
+    const[message, setMessage] = useState('');
+    const[error, setError] = useState('');
     const[newPW, setNewPW] = useState('');
     const[conPW, setConPW] = useState('');
-    const REQUIRED_ERROR_MESSAGE = '';
-    const[message, setMessage] = useState('');
-    const validPW = new RegExp('^(?=.*[a-z])(?=.*[A-Z])(?=.*)(?=.*[@$!%*?&])[A-Za-z@$!%*?&]{12,}$');
-
-    const validatePW = () => {
-        if(newPW==null){
-            setMessage('Invalid format');
-        }
-        else if(!newPW===conPW){
-            setMessage('Passwords does not match');
-        }
-        else if(!validPW.test(newPW)){
-            setMessage('Invalid format');
-        }
-        else{
-            setMessage('Valid');
-        }
-    }
-
-    const handleNewPW = event =>{
-        setNewPW(event.target.value);
-    }
-
-    const handleConPW = event =>{
-        setConPW(event.target.value);
-    }
-
+    
     return(
         <>
         <div className="form-container">
@@ -42,11 +21,21 @@ function CreatePasswordPage() {
                     name="new-password"
                     label="New Password"
                     rules={[
-                        { required: true, message: REQUIRED_ERROR_MESSAGE },
-                       {
-                        pattern: /^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[@$!%*?&])[A-Za-z\d@$!%*?&]{12,}$/,
-                        message: ''
-                       }
+                       { required: true, message: '' },
+                       ({ getFieldValue }) => ({
+                        validator() {
+                          if (!PATTERN.test(getFieldValue('new-password'))) {
+                            setMessage(FORMAT_ERROR_MESSAGE);
+                            setError('error');
+                            return Promise.reject(new Error(''));
+                          }
+                          else{
+                            setMessage('Valid');
+                            setError('');
+                            return Promise.resolve();
+                          }
+                            },
+                        }),
                       ]}
                     style={
                         {   
@@ -54,11 +43,9 @@ function CreatePasswordPage() {
                             marginBottom: 30
                         }
                     }
-                    onChange={handleNewPW}
+                    onChange={(e) => setNewPW(e.target.value)}
                  >
-                    <Input.Password
-                            value={newPW}
-                            onChange={validatePW}
+                    <Input.Password status={error}
                             ></Input.Password>
                 </Form.Item>
                 <Form.Item
@@ -66,17 +53,18 @@ function CreatePasswordPage() {
                     label="Confirm Password"
                     dependencies={['new-password']}
                     rules={[
-                        { required: true, message: REQUIRED_ERROR_MESSAGE },
+                        { required: true, message: '' },
                        {
                         pattern: /^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[@$!%*?&])[A-Za-z\d@$!%*?&]{12,}$/,
-                        message: 'Invalid format'
+                        message: ''
                        },
                        ({ getFieldValue }) => ({
                         validator(_, value) {
                           if (!value || getFieldValue('new-password') === value) {
+                            setError('');
                             return Promise.resolve();
                           }
-                          return Promise.reject(new Error('The two passwords that you entered do not match!'));
+                          return Promise.reject(new Error('Entries must be the same'));
                         },
                       }),
                       ]}
@@ -86,23 +74,21 @@ function CreatePasswordPage() {
                             marginBottom: 30
                         }
                     }
-                    onChange={handleConPW}
+                    onChange={(e) => setConPW(e.target.value)}
                 >
                     <Input.Password 
-                            value={conPW}
-                            onChange={validatePW}
                             ></Input.Password>
                 </Form.Item>
-                <p>
-                    Alert: {message}
-                </p>
-                <Form.Item className='save-btn'>
+                <p>{message}</p>
+                <Form.Item className='save-btn'
+                >
                     <Button type="primary"
                         style={
                             {   width: 69,
                                 height: 40,
                                 marginTop: 20}
                         }
+                        disabled={!(PATTERN.test(newPW)===PATTERN.test(conPW) && message !== 'Invalid')}
                         // onClick={onFinish}
                     >Save</Button>
                 </Form.Item>

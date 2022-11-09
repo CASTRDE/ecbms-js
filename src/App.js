@@ -3,6 +3,7 @@ import { BrowserRouter, Routes, Route} from "react-router-dom";
 import SiteLayout from "./layout/SiteLayout";
 import LoginPage from "./pages/LoginPage";
 import ResetPasswordPage from "./pages/ResetPasswordPage";
+import CreatePasswordPage from "./pages/CreatePasswordPage";
 import NotFoundPage from './pages/NotFoundPage';
 
 function App() {
@@ -13,6 +14,7 @@ function App() {
           <Route path="/" element={<SiteLayout />}>
             <Route path="/login" element={<LoginPage />} />
             <Route path="/reset" element={<ResetPasswordPage />} />
+            <Route path="/create" element={<CreatePasswordPage />} />
             <Route path="/*" element={<NotFoundPage />} />
           </Route>
         </Routes>

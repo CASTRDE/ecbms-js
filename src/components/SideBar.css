@@ -1,0 +1,23 @@
+.side-menu {
+    width: 256px;
+    display: flex;
+
+}
+
+.collapse-button {
+    width: 256px;
+}
+
+#components-layout-demo-side .test {
+    height: 32px;
+    margin: 16px;
+    background: rgba(255, 255, 255, 0.3);
+}
+
+.ant-layout-sider {
+    background: white !important;
+}
+
+.site-layout .site-layout-background {
+    background: pink;
+}

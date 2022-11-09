@@ -3,8 +3,8 @@ import React, {useState} from 'react';
 import "./CreatePasswordPage.css";
 
 function CreatePasswordPage() {
-    // const FORMAT_ERROR_MESSAGE = 'Entries must be at least 12 characters long and must contain a mix of uppercase/lowercase, alphanumeric, or special characters';
-    const FORMAT_ERROR_MESSAGE = 'Invalid';
+    const FORMAT_ERROR_MESSAGE = 'Entries must be at least 12 characters long and must contain a mix of uppercase/lowercase, alphanumeric, or special characters';
+    // const FORMAT_ERROR_MESSAGE = 'Invalid';
     const PATTERN = /^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[@$!%*?&])[A-Za-z\d@$!%*?&]{12,}$/;
     const[message, setMessage] = useState('');
     const[error, setError] = useState('');
@@ -79,7 +79,9 @@ function CreatePasswordPage() {
                     <Input.Password 
                             ></Input.Password>
                 </Form.Item>
-                <p>{message}</p>
+                <Form.Item>
+                    <p className='alert-message'>{message}</p>
+                </Form.Item>
                 <Form.Item className='save-btn'
                 >
                     <Button type="primary"

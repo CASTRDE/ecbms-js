@@ -4,16 +4,27 @@ import {
     MenuUnfoldOutlined,
     FileTextOutlined,
     FormOutlined,
-    SettingOutlined
+    SettingOutlined,
+    UserOutlined
 } from '@ant-design/icons';
 import {Divider, Layout, Menu} from 'antd';
 import React, {useState} from 'react';
 import Sider from "antd/es/layout/Sider";
 import {Link, Outlet } from 'react-router-dom'
+import { useSelector } from "react-redux";
+
+function checkIfAdmin(role) {
+    if (role === "Admin"){
+        return true;
+    }
+    return false;
+}
 
 function SideBar() {
-
+    const userDetails = useSelector((state) => state.userDetails);
+    const isAdmin = checkIfAdmin(userDetails.role);
     const [collapsed, setCollapsed] = useState(false);
+
 
     const items = [
         { label: <Link to ="/menu/new-lodgement"> New Lodgement </Link>, key: "/menu/new-lodgement", icon: <FormOutlined /> },
@@ -31,6 +42,7 @@ function SideBar() {
                 {label: "Office Clearance"},
                 {label: "Port of Destination"},
             ]},
+        (isAdmin && { label: <Link to ='/userControlSettings'> User Control Settings</Link> , key: "/userControlSettings" , icon: <UserOutlined /> })
     ];
 
 

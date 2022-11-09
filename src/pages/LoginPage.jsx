@@ -4,9 +4,13 @@ import React, { useState } from 'react';
 import { useNavigate } from 'react-router-dom'
 import { Link } from "react-router-dom";
 import "./LoginPage.css";
+import { useDispatch } from "react-redux";
+import {userData} from "../slicers/loginSlicer";
+import {login} from "../api/loginAPI";
 
 function LoginPage() {
-    const redirect = useNavigate()
+    const redirect = useNavigate();
+    const dispatch = useDispatch();
     const[email, setEmail] = useState('');
     const[password, setPassword] = useState('');
     const[message, setMessage] = useState('');
@@ -14,7 +18,25 @@ function LoginPage() {
 
     //TEMP
     const redirectSideMenu = () => {
-        redirect(`/menu/newlodgement`)
+        if(email === '' || password === ''){
+            setMessage('Please input log-in credentials')
+            isFlag(<ExclamationCircleFilled color="#000000"/>)
+        }
+        else if(!email.toLowerCase().includes('@oocl.com') || email.length>16){
+            setMessage('Credentials are incorrect')
+            isFlag(<ExclamationCircleFilled color="#000000"/>)
+        }
+        else {
+            login(2).then((res) => {
+                dispatch(userData(res.data))
+                if (res.data !== null) {
+                    redirect(`/menu/new-lodgement`)
+                } else {
+                    setMessage('Credentials are incorrect')
+                    isFlag(<ExclamationCircleFilled color="#000000"/>)
+                }
+            });
+        }
     }
 
     const onFinish = () => {
@@ -28,7 +50,7 @@ function LoginPage() {
             isFlag(<ExclamationCircleFilled color="#000000"/>)
         }
         else{
-            alert('Success!')
+            redirectSideMenu();
         }
 
     }
@@ -100,7 +122,7 @@ function LoginPage() {
                                     }
                                     // onClick={onFinish}>
                                     //TEMP
-                                    onClick={() => redirectSideMenu()}>
+                                    onClick={() => onFinish()}>
                                     Sign In
                                 </Button>
                             </Form.Item>
